@@ -28,7 +28,9 @@ shinyUI(fluidPage(
                      "S1 - Slightly Included" = "S1",
                      "S2 - Slightly Included" = "S2",
                      "I1 - Included" = "I1")),
-       uiOutput('cut')
+       uiOutput('cut'),
+       strong("Documentation"),
+       actionButton("show", "Show")
     ),
     
     # Show a scatterplot of diamond price vs. (carat) weight

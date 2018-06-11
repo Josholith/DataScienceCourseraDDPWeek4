@@ -20,5 +20,18 @@ shinyServer(function(input, output) {
   output$cut <- renderUI({
     selectInput("cut", "Diamond Cut Quality:", rev(levels(diamonds$cut)))
   })
-    
+
+  observeEvent(input$show, {
+      showModal(modalDialog(
+        title = "Documentation",
+        HTML("This simple Shiny app is a convenient tool for pricing diamonds. As inputs,
+         you will need to choose the specific <b>color</b>, <b>clarity</b>, and <b>cut</b>
+         you are interested in.<br><br>For diamonds matching your criteria,
+         you will get a 2-d scatterplot that shows the price of those
+         diamonds vs. their weight (carats).<br><br>A log-log regression line
+         is added so you can predict prices for new weights."),
+        easyClose = TRUE
+      ))
+    })
+      
 })
